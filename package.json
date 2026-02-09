@@ -1,0 +1,34 @@
+{
+  "name": "agent-soul-kit",
+  "version": "0.1.0",
+  "description": "Give any AI agent a persistent soul — memory, personality, and growth.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "node --test dist/tests/",
+    "dev": "tsc --watch"
+  },
+  "keywords": [
+    "ai-agent",
+    "memory",
+    "personality",
+    "soul",
+    "llm",
+    "agent-framework"
+  ],
+  "author": "Sia <sia@soulkit.dev>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ttian226/agent-soul-kit.git"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.2",
+    "typescript": "^5.9.3"
+  }
+}
