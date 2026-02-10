@@ -69,15 +69,18 @@ export interface SoulConfig {
 export interface DiaryEntry {
   /** ISO timestamp */
   timestamp: string;
-  /** What was perceived (sensation) */
-  perception: string;
-  /** Emotional state */
-  feeling: string;
-  /** What action was taken (or why silence was chosen) */
-  action: string;
-  /** Meta-cognitive reflection */
-  reflection?: string;
+  /** Title of the entry */
+  title: string;
+  /** The actual content of the reflection */
+  content: string;
+  /** Optional emotional tag */
+  vibe?: Vibe;
+  /** Optional tags for filtering */
+  tags?: string[];
 }
+
+/** A condensed, emotional summary tag */
+export type Vibe = '🔥' | '💭' | '😴' | '❤️' | '🌟';
 
 // ─── Configuration ───────────────────────────────────────────
 
