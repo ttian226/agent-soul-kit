@@ -10,6 +10,7 @@ import { join, dirname } from "node:path";
 import type {
   ActiveContext,
   DailyLogEntry,
+  DiaryEntry,
   MemoryLayer,
   SoulKitConfig,
   SearchResult,
@@ -182,13 +183,25 @@ export class MemoryEngine {
   }
 
   /** Append a diary entry */
-  async appendDiary(time: string, title: string, content: string): Promise<void> {
+  async appendDiary(entry: DiaryEntry): Promise<void> {
     const path = this.diaryPath();
     await mkdir(dirname(path), { recursive: true });
 
     const current = await this.readDiary();
     const header = current ? "" : `# 心智日记 ${this.todayStr()}\n\n`;
-    const block = `---\n\n### ${time} — ${title}\n\n${content.trim()}\n`;
+
+    const time = new Date(entry.timestamp).toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    });
+
+    let metadata = `---\ntime: ${time}\n`;
+    if (entry.vibe) metadata += `vibe: ${entry.vibe}\n`;
+    if (entry.tags?.length) metadata += `tags: [${entry.tags.join(", ")}]\n`;
+    metadata += `---\n`;
+
+    const block = `${metadata}\n### ${entry.title}\n\n${entry.content.trim()}\n`;
 
     await writeFile(path, header + current + block, "utf-8");
   }

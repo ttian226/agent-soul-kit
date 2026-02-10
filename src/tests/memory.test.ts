@@ -98,10 +98,14 @@ describe("MemoryEngine", () => {
   // ─── Diary Tests ───────────────────────────────────────
 
   it("should append and read diary", async () => {
-    await engine.appendDiary("15:43", "Afternoon thoughts", "The weather is nice today.");
+    await engine.appendDiary({
+      timestamp: new Date().toISOString(),
+      title: "Afternoon thoughts",
+      content: "The weather is nice today.",
+    });
     const diary = await engine.readDiary();
-    assert.ok(diary.includes("15:43"));
     assert.ok(diary.includes("Afternoon thoughts"));
+    assert.ok(diary.includes("The weather is nice today."));
     assert.ok(diary.includes("weather is nice"));
   });
 
