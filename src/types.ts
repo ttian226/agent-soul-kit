@@ -82,6 +82,28 @@ export interface DiaryEntry {
 /** A condensed, emotional summary tag */
 export type Vibe = '🔥' | '💭' | '😴' | '❤️' | '🌟';
 
+// ─── Vibe Snapshot ──────────────────────────────────────────
+
+/** A single emotional snapshot captured at the end of a session */
+export interface VibeSnapshot {
+  /** ISO timestamp */
+  timestamp: string;
+  /** Emotional tag */
+  vibe: Vibe;
+  /** One-sentence summary of the emotional state */
+  summary: string;
+  /** Optional trigger — what caused this feeling */
+  trigger?: string;
+}
+
+/** Options for reading vibes */
+export interface VibeReadOptions {
+  /** Maximum number of recent vibes to return (default: 5) */
+  limit?: number;
+  /** Filter by specific vibe type */
+  filter?: Vibe;
+}
+
 // ─── Configuration ───────────────────────────────────────────
 
 /** Root configuration for Agent Soul Kit */

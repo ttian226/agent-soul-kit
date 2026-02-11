@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "node --test dist/tests/memory.test.js",
+    "test": "node --test dist/tests/memory.test.js dist/tests/vibe.test.js",
     "dev": "tsc --watch"
   },
   "keywords": [

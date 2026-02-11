@@ -8,6 +8,7 @@
  */
 
 export { MemoryEngine } from "./memory.js";
+export { VibeEngine } from "./vibe.js";
 export type {
   MemoryLayer,
   ActiveContext,
@@ -18,4 +19,7 @@ export type {
   SoulKitConfig,
   SearchResult,
   SearchOptions,
+  Vibe,
+  VibeSnapshot,
+  VibeReadOptions,
 } from "./types.js";

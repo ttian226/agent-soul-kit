@@ -55,7 +55,7 @@ export async function distillDiary(): Promise<void> {
 
     if (selectedEntries && selectedEntries.length > 0) {
         console.log(chalk.blue(`\n✍️  Appending ${selectedEntries.length} insights to MEMORY.md...`));
-        const contentToAppend = selectedEntries.map(entry => `\n---\n${entry}\n`).join('');
+        const contentToAppend = selectedEntries.map((entry: string) => `\n---\n${entry}\n`).join('');
         await fs.appendFile(memoryFile, contentToAppend);
         console.log(chalk.green('✅ Insights successfully added to your long-term memory!'));
     } else {
