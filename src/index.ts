@@ -9,6 +9,8 @@
 
 export { MemoryEngine } from "./memory.js";
 export { VibeEngine } from "./vibe.js";
+export { SharedMemory } from "./shared.js";
+export { PersonalityDrift } from "./drift.js";
 export type {
   MemoryLayer,
   ActiveContext,
@@ -22,4 +24,8 @@ export type {
   Vibe,
   VibeSnapshot,
   VibeReadOptions,
+  SharedMessage,
+  SharedMemoryConfig,
+  PersonalitySnapshot,
+  DriftReport,
 } from "./types.js";

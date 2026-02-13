@@ -127,6 +127,64 @@ export interface SoulKitConfig {
   };
 }
 
+// ─── Shared Memory ──────────────────────────────────────────
+
+/** A message published to shared memory by an agent */
+export interface SharedMessage {
+  /** Which agent published this */
+  agent: string;
+  /** Topic/channel name */
+  topic: string;
+  /** ISO timestamp */
+  timestamp: string;
+  /** The content (markdown) */
+  content: string;
+  /** Optional metadata */
+  metadata?: Record<string, string>;
+}
+
+/** Configuration for shared memory */
+export interface SharedMemoryConfig {
+  /** Directory for shared files (default: "coordination/") */
+  sharedDir?: string;
+}
+
+// ─── Personality Drift ──────────────────────────────────────
+
+/** A snapshot of an agent's personality at a point in time */
+export interface PersonalitySnapshot {
+  /** ISO timestamp */
+  timestamp: string;
+  /** Soul content hash (to detect changes) */
+  soulHash: string;
+  /** Memory size in bytes */
+  memorySize: number;
+  /** Number of diary entries */
+  diaryCount: number;
+  /** Vibe distribution */
+  vibeDistribution: Record<string, number>;
+  /** Top themes from memory (keywords) */
+  topThemes: string[];
+}
+
+/** A drift report comparing two snapshots */
+export interface DriftReport {
+  /** Start snapshot */
+  from: PersonalitySnapshot;
+  /** End snapshot */
+  to: PersonalitySnapshot;
+  /** Whether soul definition changed */
+  soulChanged: boolean;
+  /** Memory growth in bytes */
+  memoryGrowth: number;
+  /** New diary entries count */
+  newDiaryEntries: number;
+  /** Vibe trend shift */
+  vibeTrend: string;
+  /** Summary description */
+  summary: string;
+}
+
 // ─── Search ──────────────────────────────────────────────────
 
 /** Result from a memory search */

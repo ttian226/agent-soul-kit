@@ -1,6 +1,6 @@
 {
   "name": "agent-soul-kit",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Give any AI agent a persistent soul — memory, personality, and growth.",
   "type": "module",
   "main": "dist/index.js",
@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "node --test dist/tests/memory.test.js dist/tests/vibe.test.js dist/tests/cli.test.js",
+    "test": "node --test dist/tests/memory.test.js dist/tests/vibe.test.js dist/tests/cli.test.js dist/tests/shared.test.js dist/tests/drift.test.js",
     "dev": "tsc --watch"
   },
   "keywords": [
