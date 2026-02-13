@@ -2,3 +2,8 @@ node_modules/
 dist/
 *.tgz
 .DS_Store
+# Soul files created by CLI testing
+active_context.md
+SOUL.md
+MEMORY.md
+memory/
