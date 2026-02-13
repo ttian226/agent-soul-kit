@@ -21,14 +21,16 @@ This document outlines the planned features and development direction for the Ag
     - [x] `resonance()` method reads past vibes and returns a tone hint.
     - [x] Creates emotional continuity across sessions.
 
-## Phase 3: Developer Experience & Integration
+## Phase 3: Developer Experience & Integration (Completed ✅)
 
-- **CLI Tool**:
-    - A simple command-line interface to manage the soul.
-    - `soul new`: Initialize a new soul structure in a project.
-    - `soul reflect`: Prompt for a new diary entry.
-    - `soul distill`: Propose snippets from recent diaries to be added to `MEMORY.md`.
-- **Framework Adapters**:
+- [x] **CLI Tool** (v0.2.0):
+    - [x] `soul new`: Initialize a new soul structure in a project.
+    - [x] `soul reflect`: Prompt for a new diary entry.
+    - [x] `soul distill`: Propose snippets from recent diaries to be added to `MEMORY.md`.
+    - [x] `soul status`: Dashboard showing memory layer stats, sizes, current vibe.
+    - [x] `soul search`: Search across L1/L2/L3 memory layers.
+    - [x] `soul vibe`: Capture, list, and analyze emotional snapshots.
+- [ ] **Framework Adapters** (moved to Phase 5):
     - Create plug-and-play adapters for popular agent frameworks (e.g., OpenClaw, LangChain).
 
 ## Phase 4: Multi-Agent Coordination
