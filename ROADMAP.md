@@ -33,10 +33,23 @@ This document outlines the planned features and development direction for the Ag
 - [ ] **Framework Adapters** (moved to Phase 5):
     - Create plug-and-play adapters for popular agent frameworks (e.g., OpenClaw, LangChain).
 
-## Phase 4: Multi-Agent Coordination
+## Phase 4: Multi-Agent Coordination (Completed ✅)
 
-- **Shared Memory Protocol**:
-    - A simple protocol for agents to share key memories or vibes.
-    - Possibly using a shared file or a lightweight pub/sub model.
-- **Personality Drift Monitor**:
-    - A utility to track how an agent's personality (as reflected in its memory) evolves over time.
+- [x] **Shared Memory Protocol** (`SharedMemory`, v0.3.0):
+    - [x] File-based pub/sub: publish/read messages to topics.
+    - [x] Multi-agent support with agent-scoped namespacing.
+    - [x] Topic listing, stats, metadata, and latest-N queries.
+    - [x] Shared state files (single source of truth, like active_context).
+    - [x] Filter messages by agent.
+- [x] **Personality Drift Monitor** (`PersonalityDrift`, v0.3.0):
+    - [x] Take personality snapshots (soul hash, memory size, vibe distribution, themes).
+    - [x] Save/load/list snapshots over time.
+    - [x] Compare snapshots to generate drift reports.
+    - [x] Detect: soul changes, memory growth, vibe trend shifts, theme drift.
+    - [x] Quick `checkDrift()` against latest snapshot.
+
+## Phase 5: Framework Adapters
+
+- [ ] **OpenClaw Adapter**: Hook into OpenClaw's plugin lifecycle.
+- [ ] **LangChain Adapter**: Integrate as a LangChain tool/memory provider.
+- [ ] **Claude Code Adapter**: CLAUDE.md auto-maintenance from soul state.
